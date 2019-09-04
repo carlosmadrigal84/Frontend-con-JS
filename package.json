@@ -4,12 +4,15 @@
   "description": "Frontend con JS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "./node_modules/.bin/http-server . -c-1"
   },
   "repository": {
     "type": "git",
     "url": "Frontend con JS"
   },
   "author": "Carlos",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
 }
