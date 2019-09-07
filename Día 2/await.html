@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+    <title>TVMaze shows</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- styles -->
+
+  </head>
+  <body>
+    <h1>TV MAZE</h1>
+    <div id="container"></div>
+    <div>
+      <p id="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eos nihil! 
+        Quisquam non provident voluptates asperiores culpa tempora dolorem et? Beatae vitae odit error id quasi recusandae eligendi, 
+        dolore exercitationem?
+      </p>
+
+    </div>
+    <script>
+        const container = document.querySelector('#container');
+
+        const getResources = () => { 
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    info = 'Super texto pero desde API';
+                    resolve(info);
+                }, 3000);
+            });
+        }
+
+        //getResources(function (info) {
+        //    addP(`1.${info}`);
+        //    getResources(function (info) {
+        //        addP(`2.${info}`);
+         //       getResources(function (info) {
+         //           addP(`3.${info}`);
+        //        });
+        //    })
+        //})
+
+        //getResources() /*Ventaja de esto frente al archivo setTimeout, es que la lectura es vertical.*/
+        //    .then(info => {
+        //        addP(`1. ${info}`);
+        //        return getResources();
+        //    })
+        //   .then(info => {
+         //       addP(`2. ${info}`);
+        //        return getResources();
+        //    })
+        //    .then(info => {
+        //        addP(`3. ${info}`);
+        //        //return getResources();
+        //    });
+
+        const addP = pValue => { /*Para que funcione la función async, la variable addP tiene que estar por encima*/
+            const para = document.createElement('p');
+            const textNode = document.createTextNode(pValue);
+            para.appendChild(textNode);
+            //container.appendChild(para);
+
+            const para2 = '<button id="texto">Super texto 3!!!</button>';
+            container.innerHTML += para2;
+            //const texto = document.querySelector('#texto');
+            //texto.addEventListener('click', () => console.log('click!!'));
+        };
+
+        const initRender = async () => { /*para que funcione el await, tiene que ir dentro de una función async*/
+            const info1 = await getResources();
+            addP(`1. ${info1}`);
+            const info2 = await getResources();
+            addP(`2. ${info2}`);
+            const info3 = await getResources();
+            addP(`3. ${info3}`);
+        };
+
+        //initRender();
+                /*Después de esto, escribe lo mismo pero sin la función async, con la versión de la función auto llamanda*/
+        
+                const info1 = await getResources();
+            addP(`1. ${info1}`);
+            const info2 = await getResources();
+            addP(`2. ${info2}`);
+            const info3 = await getResources();
+            addP(`3. ${info3}`);
+        })(); /*pero esto no lo tengo claro*/
+
+
+        
+    </script>
+</body>
+</html>
+ 

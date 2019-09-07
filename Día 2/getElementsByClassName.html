@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+    <title>TVMaze shows</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- styles -->
+
+  </head>
+  <body>
+    <h1>TV MAZE</h1>
+    <div id="my-p" class="texto" data-cy="selector-cypress">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eos nihil! 
+        Quisquam non provident voluptates asperiores culpa tempora dolorem et? Beatae vitae odit error id quasi recusandae eligendi, 
+        dolore <span>Link</span><button>Button</button>?
+    </div>
+    <div id="my-p" class="texto" data-cy="selector-cypress">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eos nihil! 
+            Quisquam non provident voluptates asperiores culpa tempora dolorem et? Beatae vitae odit error id quasi recusandae eligendi, 
+            dolore <span>Link</span><button>Button</button>?
+    </div>
+    <div id="my-p" class="texto" data-cy="selector-cypress">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eos nihil! 
+            Quisquam non provident voluptates asperiores culpa tempora dolorem et? Beatae vitae odit error id quasi recusandae eligendi, 
+            dolore <span>Link</span><button>Button</button>?
+    </div>
+
+    <button id="my-input">Texto</button>
+
+    <script>
+        console.log('Hello World');
+        const myElement = document.getElementsByClassName('texto');/*Devuelve en consola los elementos de esa clase*/
+        console.log(Object.keys(myElement)); 
+        Object.keys(myElement).forEach(key => {
+            myElement[key].innerHTML = '<button>Send</button>';
+        });
+
+        const myInput = document.getElementById('my-input');/*con esta variable localizamos nuestro elemento, importante que esté en el DOM*/
+
+        myInput.addEventListener('click', function () { /*Añadimos este eventovque su 1º elemento es un string y luego un callback que ejecuta esta función*/
+            console.log('Execute');
+        });
+
+        console.log(myInput);
+    </script>
+  </body>
+</html>

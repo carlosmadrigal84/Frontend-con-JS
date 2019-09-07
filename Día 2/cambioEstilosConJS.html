@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+    <title>TVMaze shows</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!-- styles -->
+
+  </head>
+  <body>
+    <h1>TV MAZE</h1>
+    <div id="text-container" class="container white show test">
+      <p id="lorem-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, eos nihil! 
+        Quisquam non provident voluptates asperiores culpa tempora dolorem et? Beatae vitae odit error id quasi recusandae eligendi, 
+        dolore exercitationem?
+      </p>
+      <button id="hideButton">Hide</button>
+    </div>
+    <script>
+
+      const loremText = document.querySelector("#lorem-text");
+      const hideButton = document.querySelector("#hideButton");
+
+      hideButton.addEventListener('click', () => {
+        loremText.style.backgroundColor = "red";/*para poner el fonde del texto en rojo*/
+        loremText.style.color = "blue";/*para poner el texto de color azul*/
+        console.log(loremText.style);/*para ver en la consola todos los estilo css que usa*/
+        const container = document.querySelector('#text-container');
+        console.log(container.className);
+        container.className = "hide";
+        container.classList.remove('show');//remove y add son métodos de classList. Sirve para quitar un elemento de una
+        container.classList.add('hide');  //clase (cuando tienen varias, como el class del div, y con add añadimos otro.)      
+      });
+  
+    </script>
+  </body>
+</html>
