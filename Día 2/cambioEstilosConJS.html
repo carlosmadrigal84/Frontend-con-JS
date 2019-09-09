@@ -20,19 +20,24 @@
     </div>
     <script>
 
-      const loremText = document.querySelector("#lorem-text");
+      const loremText = document.querySelector("#lorem-text");/*querySelector es un selector de CSS, nos devuelve el texto con ese id. Irá buscando hasta que encuentre el 1º id, a no ser que tengamos querySelectorAll, que nos devolvería todos en un array*/ 
       const hideButton = document.querySelector("#hideButton");
 
-      hideButton.addEventListener('click', () => {
-        loremText.style.backgroundColor = "red";/*para poner el fonde del texto en rojo*/
-        loremText.style.color = "blue";/*para poner el texto de color azul*/
-        console.log(loremText.style);/*para ver en la consola todos los estilo css que usa*/
+      hideButton.addEventListener('click', (evt) => {
+        //loremText.style.backgroundColor = "red";/*para poner el fonde del texto en rojo*/
+        //loremText.style.color = "blue";/*para poner el texto de color azul*/
+        //console.log(loremText.style);/*para ver en la consola todos los estilo css que usa*/
         const container = document.querySelector('#text-container');
-        console.log(container.className);
-        container.className = "hide";
-        container.classList.remove('show');//remove y add son métodos de classList. Sirve para quitar un elemento de una
-        container.classList.add('hide');  //clase (cuando tienen varias, como el class del div, y con add añadimos otro.)      
+        //console.log(container.className);
+        container.classList.toggle('hide');//toogle lo que hace es ejecutar los eventos, en este caso "hide" y "show".
+        if (evt.target.textContent.includes('show')) {
+          return evt.target.textContent = 'hide';
+        }
+        return evt.target.textContent = 'show';          
       });
+
+      //container.classList.remove('show');//remove y add son métodos de classList. Sirve para quitar un elemento de una
+      //container.classList.add('hide');  //clase (cuando tienen varias, como el class del div, y con add añadimos otro.)    
   
     </script>
   </body>
