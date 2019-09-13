@@ -1,9 +1,11 @@
+/* eslint-disable no-undef */
 import { renderShowsDOM } from './shows.js';
 import { hideFilter, showFilter } from './navbar.js';
 import { showQuotesForm, hideQuotesForm } from './ui.js';
 import renderDetail from './detail.js';
+import addQuoteListener from './quotesForm.js';
 
-page('/', (ctx) => {
+page('/', () => { // eslint-disable-line
   console.log('Home page');
   showFilter();
   hideQuotesForm();
@@ -15,5 +17,6 @@ page('/detail/:id', ctx => {
   hideFilter();
   showQuotesForm();
   renderDetail(id);
+  addQuoteListener(id);
 });
 page();
